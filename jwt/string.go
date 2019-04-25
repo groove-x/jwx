@@ -35,3 +35,10 @@ func (l *StringList) UnmarshalJSON(data []byte) error {
 	}
 	return l.Accept(v)
 }
+
+func (l StringList) MarshalJSON() ([]byte, error) {
+	if len(l) == 1 {
+		return json.Marshal(&l[0])
+	}
+	return json.Marshal([]string(l))
+}

@@ -164,7 +164,7 @@ func TestUnmarshal(t *testing.T) {
 				t.Set("aud", "foo")
 				return t
 			},
-			ExpectedJSON: `{"aud":["foo"]}`,
+			ExpectedJSON: `{"aud":"foo"}`,
 		},
 		{
 			Title:  "multiple aud's",
