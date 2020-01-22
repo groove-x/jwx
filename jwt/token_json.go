@@ -3,7 +3,6 @@ package jwt
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 )
 
 func (x *Token) UnmarshalJSON(b []byte) error {
@@ -19,7 +18,6 @@ func (x *Token) UnmarshalJSON(b []byte) error {
 		}
 		switch key {
 		case AudienceKey:
-			fmt.Printf("%s, %q", key, value)
 			if err := json.Unmarshal(value, &t.Audience); err != nil {
 				return err
 			}
